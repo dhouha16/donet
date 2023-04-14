@@ -1,0 +1,24 @@
+# Copyright 2018-2023 the Deno authors. All rights reserved. MIT license.
+
+[package]
+name = "deno_tls"
+version = "0.85.0"
+authors.workspace = true
+edition.workspace = true
+license.workspace = true
+readme = "README.md"
+repository.workspace = true
+description = "TLS for Deno"
+
+[lib]
+path = "lib.rs"
+
+[dependencies]
+deno_core.workspace = true
+once_cell.workspace = true
+rustls = { workspace = true, features = ["dangerous_configuration"] }
+rustls-native-certs = "0.6.2"
+rustls-pemfile.workspace = true
+serde.workspace = true
+webpki = "0.22"
+webpki-roots = "0.22"

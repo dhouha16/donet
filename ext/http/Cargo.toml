@@ -1,0 +1,44 @@
+# Copyright 2018-2023 the Deno authors. All rights reserved. MIT license.
+
+[package]
+name = "deno_http"
+version = "0.93.0"
+authors.workspace = true
+edition.workspace = true
+license.workspace = true
+readme = "README.md"
+repository.workspace = true
+description = "HTTP server implementation for Deno"
+
+[lib]
+path = "lib.rs"
+
+[[bench]]
+name = "compressible"
+harness = false
+
+[dependencies]
+async-compression = { version = "0.3.12", features = ["tokio", "brotli", "gzip"] }
+base64.workspace = true
+brotli = "3.3.4"
+bytes.workspace = true
+cache_control.workspace = true
+deno_core.workspace = true
+deno_websocket.workspace = true
+flate2.workspace = true
+fly-accept-encoding = "0.2.0"
+httparse.workspace = true
+hyper = { workspace = true, features = ["server", "stream", "http1", "http2", "runtime"] }
+memmem.workspace = true
+mime = "0.3.16"
+once_cell.workspace = true
+percent-encoding.workspace = true
+phf = { version = "0.10", features = ["macros"] }
+pin-project.workspace = true
+ring.workspace = true
+serde.workspace = true
+tokio.workspace = true
+tokio-util = { workspace = true, features = ["io"] }
+
+[dev-dependencies]
+bencher.workspace = true
